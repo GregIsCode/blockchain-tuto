@@ -119,4 +119,16 @@ contract ProposalContract {
         }
     }
 
+    function teminateProposal() external onlyOwner active {
+        proposal_history[counter].is_active = false;
+    }
+
+    function getCurrentProposal() external view returns(Proposal memory) {
+        return proposal_history[counter];
+    }
+
+    function getProposal(uint256 number) external view returns(Proposal memory) {
+        return proposal_history[number];
+    }
+
 }
